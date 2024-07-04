@@ -1,5 +1,42 @@
 // Created by Arav Jain on 7/2/2024
 
+const firebaseConfig = {
+    apiKey: "AIzaSyCYvLQ-XTe4E8fXK7pg2OfUrxWKBVgCP24",
+    authDomain: "neuralbytes-net.firebaseapp.com",
+    projectId: "neuralbytes-net",
+    storageBucket: "neuralbytes-net.appspot.com",
+    messagingSenderId: "248457682440",
+    appId: "1:248457682440:web:23ff34745a17b2ca1d7bbd",
+    measurementId: "G-MN0LYT4PFL"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+async function appendEmail(newEmail) {
+    const docRef = db.collection('newsletter').doc('subscribers');
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+        let emails = doc.data().emails;
+
+        if (!emails) {
+            emails = [];
+        }
+
+        emails.push(newEmail);
+
+        emails.sort((a, b) => a.localeCompare(b));
+
+        await docRef.update({emails});
+    } else {
+        await docRef.set({
+            emails: [newEmail]
+        });
+    }
+
+}
+
 function open_neuralbytes_search() {
     window.open('https://neuralbytes-search.streamlit.app', '_blank');
 }
@@ -27,10 +64,10 @@ function typewriter_header() {
 
 document.addEventListener('DOMContentLoaded', typewriter_header);
 
-function submit_subscribe_form() {
+async function submit_subscribe_form() {
     let email = document.getElementById('subscribe_field').value;
-    let mailtoLink = 'mailto:contact@neuralbytes.net?subject=Subscribe to the NeuralBytes Newsletter' + '&body=Email%20for%20registration:%20' + encodeURI(email);
-    window.location.href = mailtoLink;
+    await appendEmail(email);
+    document.getElementById('newsletter_subscribe_under_label').textContent = 'Thanks for subscribing!';
 }
 
 function submit_contact_form() {
