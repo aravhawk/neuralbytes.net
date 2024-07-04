@@ -64,10 +64,23 @@ function typewriter_header() {
 
 document.addEventListener('DOMContentLoaded', typewriter_header);
 
+function validateEmail(email) {
+    const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return re.test(email);
+}
+
 async function submit_subscribe_form() {
     let email = document.getElementById('subscribe_field').value;
-    await appendEmail(email);
-    document.getElementById('newsletter_subscribe_under_label').textContent = 'Thanks for subscribing!';
+    if (email.length > 0) {
+        if (validateEmail(email)) {
+            await appendEmail(email);
+            document.getElementById('newsletter_subscribe_under_label').textContent = 'Thanks for subscribing!';
+        } else {
+            document.getElementById('newsletter_subscribe_under_label').textContent = 'Please enter a valid email address.';
+        }
+    } else {
+        document.getElementById('newsletter_subscribe_under_label').textContent = 'Please enter your email.';
+    }
 }
 
 function submit_contact_form() {
