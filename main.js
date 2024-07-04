@@ -1,14 +1,5 @@
 // Created by Arav Jain on 7/2/2024
 
-import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js';
-import {
-    getFirestore,
-    doc,
-    getDoc,
-    setDoc,
-    updateDoc
-} from 'https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js';
-
 const firebaseConfig = {
     apiKey: "AIzaSyCYvLQ-XTe4E8fXK7pg2OfUrxWKBVgCP24",
     authDomain: "neuralbytes-net.firebaseapp.com",
@@ -19,27 +10,31 @@ const firebaseConfig = {
     measurementId: "G-MN0LYT4PFL"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
 async function appendEmail(newEmail) {
-    const docRef = doc(db, 'newsletter', 'subscribers');
-    const docSnap = await getDoc(docRef);
+    const docRef = db.collection('newsletter').doc('subscribers');
+    const doc = await docRef.get();
 
-    if (docSnap.exists()) {
-        let emails = docSnap.data().emails;
+    if (doc.exists) {
+        let emails = doc.data().emails;
 
         if (!emails) {
             emails = [];
         }
 
         emails.push(newEmail);
+
         emails.sort((a, b) => a.localeCompare(b));
 
-        await updateDoc(docRef, {emails});
+        await docRef.update({emails});
     } else {
-        await setDoc(docRef, {emails: [newEmail]});
+        await docRef.set({
+            emails: [newEmail]
+        });
     }
+
 }
 
 function open_neuralbytes_search() {
