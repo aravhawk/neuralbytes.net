@@ -42,7 +42,7 @@ function open_neuralbytes_search() {
 }
 
 function typewriter_header() {
-    const main_page_header_text = "Integrating AI to create breakthrough tools and experiences";
+    const main_page_header_text = "Integrating AI to create unique tools and experiences";
     const typewriterElement = document.getElementById('main_page_header');
     let main_page_header_text_chunk = "";
     let i = 0;
