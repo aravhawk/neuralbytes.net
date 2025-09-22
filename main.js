@@ -37,9 +37,6 @@ async function appendEmail(newEmail) {
 
 }
 
-function open_neuralbytes_search() {
-    window.open('https://neuralbytes-search.streamlit.app', '_blank');
-}
 
 function typewriter_header() {
     const main_page_header_text = "Building AI-integrated experiences and experiments";
