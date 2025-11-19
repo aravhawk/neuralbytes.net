@@ -14,99 +14,143 @@
     <title>NeuralBytes</title>
   </head>
   <body>
-    <header class="sticky top-0 z-50 text-gray-400 bg-gray-900 body-font">
-      <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0" href="https://neuralbytes.net">
-          <img src="resources/images/neuralbytes_logo.png" class="w-20 h-20 text-white p-2 rounded-full">
-          <span class="ml-3 text-xl">NeuralBytes</span>
+    <header class="sticky top-0 z-50 bg-gray-900 bg-opacity-95 backdrop-blur-sm border-b border-gray-800">
+      <div class="container mx-auto flex flex-wrap px-6 py-4 flex-col md:flex-row items-center">
+        <a class="flex items-center text-white mb-3 md:mb-0 font-semibold tracking-tight" href="https://neuralbytes.net">
+          <img src="resources/images/neuralbytes_logo.png" class="w-10 h-10 rounded-lg">
+          <span class="ml-3 text-lg">NeuralBytes</span>
         </a>
-        <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <a class="mr-5 hover:text-white" href="https://intergalacticpro.neuralbytes.net">IntergalacticPro</a>
-          <a class="mr-5 hover:text-white" href="https://alphapredict.neuralbytes.net">AlphaPredict</a>
+        <nav class="md:ml-auto flex items-center text-sm space-x-8">
+          <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://intergalacticpro.neuralbytes.net">IntergalacticPro</a>
+          <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://alphapredict.neuralbytes.net">AlphaPredict</a>
         </nav>
       </div>
     </header>
-    <section class="text-gray-400 bg-gray-900 body-font">
-      <div class="container mx-auto flex flex-col px-5 py-24 justify-center items-center">
-        <div class="w-full lg:w-2/3 flex flex-col items-center text-center">
-          <h1 id="main_page_header" class="title-font sm:text-4xl text-3xl mb-6 font-medium text-white"></h1>
-          <p class="mb-8 leading-relaxed lg:w-5/6">Here at NeuralBytes, we're dedicated to integrating AI into products and services to create experiences that were never possible before. Feel free to check out our website along with the quickly-expanding range of apps, and make sure to sign up below for the latest updates!</p>
-          <div class="flex flex-col w-full lg:w-2/3 items-center">
-            <div class="w-full mb-4">
-              <label for="subscribe_field" class="leading-7 text-sm text-gray-400 block mb-2 text-center">Subscribe with email for the latest in NeuralBytes & AI:</label>
-              <div class="flex w-full">
-                <input type="email" id="subscribe_field" name="hero-field" class="flex-grow bg-gray-800 rounded-l border bg-opacity-50 border-gray-700 focus:ring-2 focus:ring-red-900 focus:bg-gray-900 focus:border-red-500 text-base outline-none text-gray-100 py-2 px-4 leading-8 transition-colors duration-200 ease-in-out">
-                <button class="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-r text-lg" onclick="submit_subscribe_form()">Subscribe</button>
+    <section class="bg-gray-900 min-h-screen flex items-center">
+      <div class="container mx-auto px-6 py-32">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 id="main_page_header" class="text-5xl md:text-6xl font-bold text-white mb-8 leading-tight"></h1>
+          <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+            We're dedicated to integrating AI into products and services to create experiences that were never possible before.
+          </p>
+
+          <div class="max-w-md mx-auto">
+            <form class="space-y-4">
+              <div class="bg-gray-800 bg-opacity-50 rounded-lg p-1 flex items-center border border-gray-700 focus-within:border-red-500 transition-colors duration-200">
+                <input
+                  type="email"
+                  id="subscribe_field"
+                  placeholder="Enter your email"
+                  class="flex-1 bg-transparent text-white px-4 py-3 outline-none placeholder-gray-500"
+                >
+                <button
+                  type="button"
+                  onclick="submit_subscribe_form()"
+                  class="bg-red-500 hover:bg-red-600 text-white font-medium px-6 py-3 rounded-md transition-all duration-200 transform hover:scale-105"
+                >
+                  Subscribe
+                </button>
               </div>
-            </div>
-            <p id="newsletter_subscribe_under_label" class="text-sm text-gray-500">No spam, ever! Your email is stored securely.</p>
+              <p id="newsletter_subscribe_under_label" class="text-sm text-gray-500">No spam. Unsubscribe anytime.</p>
+            </form>
           </div>
         </div>
       </div>
     </section>
-    <section class="text-gray-400 bg-gray-900 body-font">
-      <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-col text-center w-full mb-12">
-          <h2 class="text-white text-2xl font-medium title-font mb-4">Contact Us</h2>
-          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">We're happy to answer and solve your questions or concerns, related to our products and services. Feedback is greatly appreciated.</p>
-        </div>
-        <div class="lg:w-1/2 md:w-2/3 mx-auto">
-          <div class="flex flex-wrap -m-2">
-            <div class="p-2 w-1/2">
-              <div class="relative">
-                <label for="name" class="leading-7 text-sm text-gray-400">Name</label>
-                <input id="name" name="name" class="w-full bg-gray-800 bg-opacity-50 rounded border border-gray-700 focus:border-red-500 focus:bg-gray-900 focus:ring-2 focus:ring-red-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    <section class="bg-gray-900 py-24">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-white mb-4">Get in Touch</h2>
+            <p class="text-gray-400 text-lg">Have questions? We'd love to hear from you.</p>
+          </div>
+
+          <div class="bg-gray-800 bg-opacity-50 rounded-2xl p-8 md:p-12 border border-gray-700">
+            <form class="space-y-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    class="w-full bg-gray-900 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-200"
+                    placeholder="John Doe"
+                  >
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    class="w-full bg-gray-900 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-200"
+                    placeholder="john@example.com"
+                  >
+                </div>
               </div>
-            </div>
-            <div class="p-2 w-1/2">
-              <div class="relative">
-                <label for="email" class="leading-7 text-sm text-gray-400">Email</label>
-                <input type="email" id="email" name="email" class="w-full bg-gray-800 bg-opacity-50 rounded border border-gray-700 focus:border-red-500 focus:bg-gray-900 focus:ring-2 focus:ring-red-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+
+              <div>
+                <label for="subject" class="block text-sm font-medium text-gray-400 mb-2">Subject</label>
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  class="w-full bg-gray-900 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-200"
+                  placeholder="How can we help?"
+                >
               </div>
-            </div>
-            <div class="p-2 w-full">
-              <div class="relative">
-                <label for="subject" class="leading-7 text-sm text-gray-400">Subject</label>
-                <input id="subject" name="subject" class="w-full bg-gray-800 bg-opacity-50 rounded border border-gray-700 focus:border-red-500 focus:bg-gray-900 focus:ring-2 focus:ring-red-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+
+              <div>
+                <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  class="w-full bg-gray-900 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-200 resize-none"
+                  placeholder="Tell us what's on your mind..."
+                ></textarea>
               </div>
-            </div>
-            <div class="p-2 w-full">
-              <div class="relative">
-                <label for="message" class="leading-7 text-sm text-gray-400">Message</label>
-                <textarea id="message" name="message" class="w-full bg-gray-800 bg-opacity-50 rounded border border-gray-700 focus:border-red-500 focus:bg-gray-900 focus:ring-2 focus:ring-red-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
-              </div>
-            </div>
-            <div class="p-2 w-full">
-              <button class="flex mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg" onclick="submit_contact_form()">Submit</button>
-            </div>
-            <div class="p-2 w-full pt-8 mt-8 border-t border-gray-800 text-center">
-              <p class="text-sm text-gray-400">Our team will try to reply as soon as possible, but it may take up to 48 hours.</p>
-            </div>
+
+              <button
+                type="button"
+                onclick="submit_contact_form()"
+                class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-4 rounded-lg transition-all duration-200 transform hover:scale-[1.02]"
+              >
+                Send Message
+              </button>
+
+              <p class="text-sm text-gray-500 text-center mt-4">We typically respond within 24-48 hours.</p>
+            </form>
           </div>
         </div>
       </div>
     </section>
-    <footer class="text-gray-400 bg-gray-900 body-font border-t border-gray-800">
-      <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-        <a class="flex title-font font-medium items-center md:justify-start justify-center text-white" href="https://neuralbytes.net">
-          <img src="resources/images/neuralbytes_logo.png" class="w-20 h-20 text-white p-2 rounded-full">
-          <span class="ml-3 text-xl">NeuralBytes</span>
-        </a>
-        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-700 sm:py-2 sm:mt-0 mt-4">© 2024-2025 NeuralBytes, Inc.</p>
-        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-          <a class="ml-3 text-gray-500 hover:text-white transition-colors duration-200" href="https://www.instagram.com/neuralbytes_ai/" target="_blank" aria-label="Instagram">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-            </svg>
-          </a>
-          <a class="ml-3 text-gray-500 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/neuralbytes/" target="_blank" aria-label="LinkedIn">
-            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
-              <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
-              <circle cx="4" cy="4" r="2" stroke="none"></circle>
-            </svg>
-          </a>
-        </span>
+    <footer class="bg-gray-900 border-t border-gray-800">
+      <div class="container mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="flex items-center mb-6 md:mb-0">
+            <img src="resources/images/neuralbytes_logo.png" class="w-10 h-10 rounded-lg">
+            <span class="ml-3 text-white font-semibold text-lg">NeuralBytes</span>
+          </div>
+
+          <div class="flex items-center space-x-6 mb-6 md:mb-0">
+            <a href="https://www.instagram.com/neuralbytes_ai/" target="_blank" aria-label="Instagram" class="text-gray-500 hover:text-white transition-colors duration-200">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/neuralbytes/" target="_blank" aria-label="LinkedIn" class="text-gray-500 hover:text-white transition-colors duration-200">
+              <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-6 h-6" viewBox="0 0 24 24">
+                <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+              </svg>
+            </a>
+          </div>
+
+          <p class="text-sm text-gray-500">© 2024-2025 NeuralBytes, Inc.</p>
+        </div>
       </div>
     </footer>
   </body>
