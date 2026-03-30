@@ -1,11 +1,11 @@
 import { getDb } from "@/lib/db";
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const MAX_EMAIL_LENGTH = 254;
 
-export async function POST(request) {
-  let body;
+export async function POST(request: NextRequest) {
+  let body: { email?: unknown };
   try {
     body = await request.json();
   } catch {

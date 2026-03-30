@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type FormEvent } from "react";
 import Image from "next/image";
 
-function useTypewriter(text, speed = 80) {
+function useTypewriter(text: string, speed = 80) {
   const [displayed, setDisplayed] = useState("");
   const indexRef = useRef(0);
 
@@ -29,7 +29,7 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [subscribeMessage, setSubscribeMessage] = useState("No spam. Unsubscribe anytime.");
 
-  async function handleSubscribe(e) {
+  async function handleSubscribe(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -56,12 +56,13 @@ export default function Home() {
     }
   }
 
-  function handleContact(e) {
+  function handleContact(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const name = e.target.name.value;
-    const subject = e.target.subject.value;
-    const contactEmail = e.target.email.value;
-    const message = e.target.message.value;
+    const form = e.currentTarget;
+    const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+    const subject = (form.elements.namedItem("subject") as HTMLInputElement).value;
+    const contactEmail = (form.elements.namedItem("email") as HTMLInputElement).value;
+    const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
     window.location.href =
       "mailto:contact@neuralbytes.net?subject=" +
       encodeURIComponent(subject) +
