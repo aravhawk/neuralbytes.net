@@ -27,11 +27,16 @@ export async function POST(request) {
   try {
     const sql = getDb();
 
-    await sql`
+    const result = await sql`
       INSERT INTO subscribers (email)
       VALUES (${trimmedEmail})
       ON CONFLICT (email) DO NOTHING
+      RETURNING id
     `;
+
+    if (result.length === 0) {
+      return NextResponse.json({ message: "You're already subscribed!" }, { status: 409 });
+    }
 
     return NextResponse.json({ message: "Thanks for subscribing!" });
   } catch (error) {

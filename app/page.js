@@ -50,7 +50,7 @@ export default function Home() {
         body: JSON.stringify({ email }),
       });
       const data = await res.json();
-      setSubscribeMessage(res.ok ? "Thanks for subscribing!" : data.error);
+      setSubscribeMessage(data.message || data.error);
     } catch {
       setSubscribeMessage("Something went wrong. Please try again.");
     }
