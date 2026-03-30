@@ -1,2 +1,17 @@
 .DS_Store
 .idea/
+
+# Dependencies
+node_modules/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Next.js
+.next/
+out/
+
+# Vercel
+.vercel/
