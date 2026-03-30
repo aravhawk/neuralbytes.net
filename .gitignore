@@ -9,8 +9,9 @@ node_modules/
 .env.*
 !.env.example
 
-# Firebase
-.firebase/
-firebase-debug.log
-firestore-debug.log
-ui-debug.log
+# Next.js
+.next/
+out/
+
+# Vercel
+.vercel/
