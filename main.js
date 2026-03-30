@@ -1,40 +1,22 @@
 // Created by Arav Jain on 7/2/2024
 
-const firebaseConfig = {
-    apiKey: "AIzaSyCYvLQ-XTe4E8fXK7pg2OfUrxWKBVgCP24",
-    authDomain: "neuralbytes-net.firebaseapp.com",
-    projectId: "neuralbytes-net",
-    storageBucket: "neuralbytes-net.appspot.com",
-    messagingSenderId: "248457682440",
-    appId: "1:248457682440:web:23ff34745a17b2ca1d7bbd",
-    measurementId: "G-MN0LYT4PFL"
-};
-
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+// Replace this with your deployed Cloud Function URL after running `firebase deploy`
+const SUBSCRIBE_ENDPOINT = "/api/subscribe";
 
 async function appendEmail(newEmail) {
-    const docRef = db.collection('newsletter').doc('subscribers');
-    const doc = await docRef.get();
+    const response = await fetch(SUBSCRIBE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: newEmail })
+    });
 
-    if (doc.exists) {
-        let emails = doc.data().emails;
+    const data = await response.json();
 
-        if (!emails) {
-            emails = [];
-        }
-
-        emails.push(newEmail);
-
-        emails.sort((a, b) => a.localeCompare(b));
-
-        await docRef.update({emails});
-    } else {
-        await docRef.set({
-            emails: [newEmail]
-        });
+    if (!response.ok) {
+        throw new Error(data.error || "Subscription failed.");
     }
 
+    return data;
 }
 
 
@@ -70,8 +52,12 @@ async function submit_subscribe_form() {
     let email = document.getElementById('subscribe_field').value;
     if (email.length > 0) {
         if (validateEmail(email)) {
-            await appendEmail(email);
-            document.getElementById('newsletter_subscribe_under_label').textContent = 'Thanks for subscribing!';
+            try {
+                await appendEmail(email);
+                document.getElementById('newsletter_subscribe_under_label').textContent = 'Thanks for subscribing!';
+            } catch (error) {
+                document.getElementById('newsletter_subscribe_under_label').textContent = error.message;
+            }
         } else {
             document.getElementById('newsletter_subscribe_under_label').textContent = 'Please enter a valid email address.';
         }
