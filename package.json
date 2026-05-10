@@ -10,18 +10,18 @@
     "db:migrate": "tsx lib/migrate.ts"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^1.0.2",
-    "next": "^16.2.1",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "@neondatabase/serverless": "^1.1.0",
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.0.0",
-    "@types/node": "^25.5.0",
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^25.6.2",
     "@types/react": "^19.2.14",
-    "postcss": "^8.4.0",
-    "tailwindcss": "^4.0.0",
+    "postcss": "^8.5.14",
+    "tailwindcss": "^4.3.0",
     "tsx": "^4.21.0",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.3"
   }
 }
