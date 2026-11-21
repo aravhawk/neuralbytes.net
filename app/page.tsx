@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { SITE_DESCRIPTION, pageMetadata } from "@/lib/site";
+import { JsonLd, siteGraph } from "@/lib/json-ld";
+import { SITE_DESCRIPTION, pageMetadata, type PageSeo } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
+const seo: PageSeo = {
   title: "Thanks for sticking with NeuralBytes",
   description: SITE_DESCRIPTION,
   path: "/",
-});
+  standalone: true, // the title already names the site
+};
+
+export const metadata: Metadata = pageMetadata(seo);
 
 export default function Home() {
   return (
     <main className="bg-gray-900 min-h-screen flex items-center">
+      <JsonLd data={siteGraph(seo)} />
       <div className="container mx-auto px-6 py-24">
         <div className="max-w-2xl mx-auto text-center">
           <Image
