@@ -51,6 +51,27 @@ export default function Home() {
             <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
               We&apos;re dedicated to integrating AI into products and services to create experiences that were never possible before.
             </p>
+
+            <div className="max-w-md mx-auto">
+              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <div className="bg-gray-800/50 rounded-lg p-1 flex items-center border border-gray-700">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    disabled
+                    className="flex-1 bg-transparent text-white px-4 py-3 outline-none placeholder-gray-500 cursor-not-allowed"
+                  />
+                  <button
+                    type="submit"
+                    disabled
+                    className="bg-red-500 text-white font-medium px-6 py-3 rounded-md opacity-60 cursor-not-allowed"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+                <p className="text-sm text-gray-500">Subscriptions are no longer active.</p>
+              </form>
+            </div>
           </div>
         </div>
       </section>
